@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jaw">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jaw.jar!/" />
+      <root url="jar://$PROJECT_DIR$/XboxController.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
