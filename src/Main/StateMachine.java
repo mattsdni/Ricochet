@@ -30,6 +30,7 @@ public class StateMachine
         }
         thisFrame = System.currentTimeMillis()-startTime;
         timeElapsed = (thisFrame - lastFrame) / 1000.0;
+        System.out.println(timeElapsed);
 
         stateMap.get(currentState).Update(timeElapsed);
     }

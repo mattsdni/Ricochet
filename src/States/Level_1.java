@@ -86,25 +86,21 @@ public class Level_1 extends PApplet implements IState
                     if ((w.x > prj.x) && (w.x + w.w > prj.x + prj.size))
                     {
                         prj.v.x*=-1;
-                        prj.x-=1;
                     }
                     //right
                     else if ((w.x < prj.x) && (w.x + w.w < prj.x + prj.size))
                     {
                         prj.v.x*=-1;
-                        prj.x+=1;
                     }
                     //top
                     else if ((w.y > prj.y) && (w.y + w.h > prj.y + prj.size))
                     {
                         prj.v.y*=-1;
-                        prj.y-=1;
                     }
                     //bottom
                     else if ((w.y < prj.y) && (w.y + w.h < prj.y + prj.size))
                     {
                         prj.v.y*=-1;
-                        prj.y+=1;
                     }
                 }
             }
@@ -118,13 +114,18 @@ public class Level_1 extends PApplet implements IState
         //******************************************************************//
         //---------------------Player vs Wall Collision---------------------//
         //******************************************************************//
-        for (Wall w : walls)
-        {
-            if (CollisionFunctions.rectBall(w.x, w.y, w.w, w.h, player1.x, player1.y, player1.size))
-            {
-                player1.wouldCollide = true;
-            }
-        }
+//        for (Wall w : walls)
+//        {
+//            if (CollisionFunctions.rectBall(w.x, w.y, w.w, w.h, player1.x, player1.y, player1.size/2))
+//            {
+//                if (player1.v.x > 0)
+//                    player1.setPosition(player1.prevX, player1.prevY);
+//                if (player1.v.y > 0)
+//                    player1.setPosition(player1.prevX, player1.prevY);
+//                player1.wouldCollide = true;
+//                System.out.println("p collildl");
+//            }
+//        }
 
     }
 
@@ -200,9 +201,17 @@ public class Level_1 extends PApplet implements IState
         //******************************************************************//
         //---------------------------Create Walls---------------------------//
         //******************************************************************//
+
+        walls.add(new Wall(p, p.width - 50, 0,50,2000,"steel"));
+        walls.add(new Wall(p,0,p.height-50,p.width,50, "steel"));
+        walls.add(new Wall(p,0,50,p.width,50, "steel"));
+        walls.add(new Wall(p,0,50,p.width,50, "steel"));
+
+
+        walls.add(new Wall(p,0,50,50,800, "steel"));
+        walls.add(new Wall(p,250,500,50,200, "steel"));
+        walls.add(new Wall(p,550,500,50,200, "steel"));
         walls.add(new Wall(p, 250, 700, 1000, 50, "steel"));
-        walls.add(new Wall(p, 250, 200, 50, 1000, "wood"));
-        walls.add(new Wall(p, p.width - 50, 0,50,2000,"wood"));
 
     }
 

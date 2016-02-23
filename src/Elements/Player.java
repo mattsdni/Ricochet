@@ -3,6 +3,7 @@ package Elements;
 import Main.GUI;
 import States.Level_1;
 import processing.core.PApplet;
+import processing.core.PVector;
 
 /**
  * Created by Matt on 6/27/2015.
@@ -11,6 +12,8 @@ public class Player
 {
     PApplet p;
     public float x,y;
+    //public float prevX, prevY;
+    public PVector v;
     public int size;
     float mid;
     private int movement;
@@ -22,6 +25,7 @@ public class Player
         p = _p;
         x = p.width/2;
         y = p.height/2;
+        v = new PVector(0,0);
         size = 50;
         mid = 0;
         movement = 0;
@@ -72,8 +76,10 @@ public class Player
             wouldCollide = false;
             return;
         }
-        x += 200*GUI.stateMachine.timeElapsed * Math.cos(direction);
-        y += 200*GUI.stateMachine.timeElapsed * Math.sin(direction);
+        v.x = (float) (200*GUI.stateMachine.timeElapsed * Math.cos(direction));
+        v.y = (float) (200*GUI.stateMachine.timeElapsed * Math.sin(direction));
+        x += v.x;
+        y += v.y;
         movement-=1;
     }
 
